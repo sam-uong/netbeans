@@ -78,16 +78,7 @@ public class NbPacHelperMethods extends PacHelperMethods {
 
     @Override
     public boolean dnsDomainIs(String host, String domain) {
-        int dotPos = host.indexOf(".");
-        if (dotPos != -1 && (dotPos < host.length()-1)) {
-            if (host.substring(dotPos).equals(domain)) {
-                return true;
-            }
-            if (host.substring(dotPos+1).equals(domain)) {
-                return true;
-            }
-        }
-        return false;
+        return host.endsWith(domain);
     }
 
     

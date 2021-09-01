@@ -94,10 +94,9 @@ public class PacHelperMethodsImplTest {
     public void testDnsDomainIs() {
         assertTrue(helpers.dnsDomainIs("www.netscape.com", ".netscape.com"));
         assertTrue(helpers.dnsDomainIs("www.netscape.com", "netscape.com"));
-        assertFalse(helpers.dnsDomainIs("www.netscape.com", ".com"));
         assertFalse(helpers.dnsDomainIs("www.netscape.com", "somethingelse.com"));
-        assertFalse(helpers.dnsDomainIs("www.netscape.com", ""));
-        assertFalse(helpers.dnsDomainIs("www.netscape.com", null));
+        assertTrue(helpers.dnsDomainIs("multilevel.subdomain.netscape.com", ".netscape.com"));
+        assertTrue(helpers.dnsDomainIs("agoogle.com", "google.com")); // see https://crbug.com/299649
     }
 
     /**
